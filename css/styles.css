@@ -5,10 +5,18 @@ Header Color: #D3D3D3
 
 :root {
     --header-color: lightGray;
+    --background-color: rgb(243, 247, 213);
 }
 
 * {
     box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 24px;
+    background-color: var(--background-color);
 }
 
 .page-header {
