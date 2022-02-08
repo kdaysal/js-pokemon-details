@@ -1,0 +1,22 @@
+/*
+Colors used
+Header Color: #D3D3D3
+*/
+
+:root {
+    --header-color: lightGray;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.page-header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 15px;
+    background-color: var(--header-color);
+    border-bottom: solid 1px blue;
+}
+
