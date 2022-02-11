@@ -36,17 +36,11 @@ let pokemonList = [{
 }
 ];
 
-//Print list of Pokemon names and heights to the DOM
 let wowMessage = "Wow, that's big!";
-for (let i = 0; i < pokemonList.length; i++) {
 
-    if (pokemonList[i].height > 3) {
-        document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - ${wowMessage}`)
-    }
-
-    else {
-        document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}m)`)
-    }
-}
+pokemonList.forEach((pokemon) => {
+    //write pokemon heights and names to the document and add wowMessage for tallest pokemon
+    return (pokemon.height > 3) ? document.write(`<p>${pokemon.name} (height: ${pokemon.height}m) - ${wowMessage}</p>`) : document.write(`<p>${pokemon.name} (height: ${pokemon.height}m)</p>`);
+});
 
 
