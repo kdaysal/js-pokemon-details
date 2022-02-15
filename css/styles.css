@@ -1,6 +1,7 @@
 /*
 Colors used
 Header Color: #D3D3D3
+Background Color: rgb(243, 247, 213);
 */
 
 :root {
@@ -29,13 +30,13 @@ body {
 }
 
 /* for styling all the list items */
-.pokemon-button-class {
+.pokemon-button {
     background-color: orange;
-    margin-right: 45px;
+    margin-right: 45px; /* to correct for the li indentation */
 }
 
 /* for styling the buttons themselves */
-.pokemon-button-item {
+.button-class {
     background-color: lightskyblue;
     cursor: pointer;
     margin: 3px;
@@ -44,5 +45,4 @@ body {
 
 .pokemon-list {
     list-style: none; 
-    
 } 
