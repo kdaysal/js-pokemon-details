@@ -63,9 +63,15 @@ let wowMessage = "Wow, that's big!";
 
 //pokemonRepository.getAll() returns the full pokemonList array - then use forEach() to iterate through each pokemon object
 pokemonRepository.getAll().forEach((pokemon) => {
-
-    //write pokemon heights and names to the document and add wowMessage for tallest pokemon
-    return (pokemon.height > 3) ? document.write(`<p>${pokemon.name} (height: ${pokemon.height}m) - ${wowMessage}</p>`) : document.write(`<p>${pokemon.name} (height: ${pokemon.height}m)</p>`);
+let pokemonList = document.querySelector('.pokemon-list');
+    
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.classList.add('pokemon-button-item');
+    button.innerText = pokemon.name;
+    listItem.classList.add('pokemon-button-class');
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
 });
 
 //code below this line is just for testing - DELETE LATER
