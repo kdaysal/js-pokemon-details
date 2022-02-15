@@ -28,3 +28,21 @@ body {
     border-bottom: solid 1px blue;
 }
 
+/* for styling all the list items */
+.pokemon-button-class {
+    background-color: orange;
+    margin-right: 45px;
+}
+
+/* for styling the buttons themselves */
+.pokemon-button-item {
+    background-color: lightskyblue;
+    cursor: pointer;
+    margin: 3px;
+    padding: 10px;
+}
+
+.pokemon-list {
+    list-style: none; 
+    
+} 
