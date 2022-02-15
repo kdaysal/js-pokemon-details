@@ -53,32 +53,27 @@ let pokemonRepository = (function () {
         }
     }
 
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.classList.add('button-class');
+        button.innerText = pokemon.name;
+        listItem.classList.add('pokemon-button');
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
+    }
+
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     }
 })(); //end of IIFE
 
 let wowMessage = "Wow, that's big!";
 
-//pokemonRepository.getAll() returns the full pokemonList array - then use forEach() to iterate through each pokemon object
+//generate list item (button) for each pokemon name
 pokemonRepository.getAll().forEach((pokemon) => {
-let pokemonList = document.querySelector('.pokemon-list');
-    
-    let listItem = document.createElement('li');
-    let button = document.createElement('button');
-    button.classList.add('pokemon-button-item');
-    button.innerText = pokemon.name;
-    listItem.classList.add('pokemon-button-class');
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
+    pokemonRepository.addListItem(pokemon);
 });
-
-//code below this line is just for testing - DELETE LATER
-/*
-pokemonRepository.add({ name: 'Kevin', height: 1.4 });
-pokemonRepository.add({ name: 'Another Kevin', height: 7 });
-pokemonRepository.add({ namezzz: 'DONT ADD', height: 'DONT ADD' });
-pokemonRepository.add({ name: 'DONT ADD', heightzzz: 'DONT ADD' });
-console.log(pokemonRepository.getAll());
-*/
