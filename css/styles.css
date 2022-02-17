@@ -32,7 +32,6 @@ body {
 /* for styling all the list items */
 .pokemon-button {
     background-color: orange;
-    margin-right: 40px; /* to correct for the li indentation */
 }
 
 /* for styling the buttons themselves */
@@ -44,5 +43,8 @@ body {
 }
 
 .pokemon-list {
-    list-style: none; 
+    list-style: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
 } 
