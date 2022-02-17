@@ -64,7 +64,6 @@ let pokemonRepository = (function () {
         pokemonList.appendChild(listItem);
 
         //add an event listener to each button to log details of the pokemon object to the console
-<<<<<<< HEAD
         addListener(button, pokemon);
     }
 
@@ -72,10 +71,6 @@ let pokemonRepository = (function () {
     function addListener(button, item) {
         button.addEventListener("click", () => {
             showDetails(item);
-=======
-        button.addEventListener("click", () => {
-            showDetails(pokemon);
->>>>>>> 1f434354aa35dd11d1dcafa07fff1f72128286df
         });
     }
 
