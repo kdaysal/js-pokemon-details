@@ -67,7 +67,7 @@ let pokemonRepository = (function () {
         addListener(button, pokemon);
     }
 
-    //external function to add eventListener, passing in 'pokemon' object as the item
+    //external function to add eventListener, passing in 'pokemon' object as the item ('advanced' task)
     function addListener(button, item) {
         button.addEventListener("click", () => {
             showDetails(item);
