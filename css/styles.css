@@ -30,9 +30,9 @@ body {
 }
 
 /* for styling all the list items */
-.pokemon-button {
+/* .pokemon-button {
     background-color: orange;
-}
+} */
 
 /* for styling the buttons themselves */
 .button-class {
@@ -40,6 +40,12 @@ body {
     cursor: pointer;
     margin: 3px;
     padding: 10px;
+}
+
+.button-class:hover,
+.button-class:focus {
+    cursor: pointer;
+    background-color: lightgreen;
 }
 
 .pokemon-list {
