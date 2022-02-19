@@ -5,8 +5,8 @@ Background Color: rgb(243, 247, 213);
 */
 
 :root {
-    --header-color: lightGray;
     --background-color: rgb(243, 247, 213);
+    --header-color: lightGray;
 }
 
 * {
@@ -14,19 +14,20 @@ Background Color: rgb(243, 247, 213);
 }
 
 body {
-    text-align: center;
+    background-color: var(--background-color);
     font-family: 'Merriweather', sans-serif;
     font-size: 24px;
-    background-color: var(--background-color);
+    text-align: center;
 }
 
 .page-header {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    padding: 15px;
     background-color: var(--header-color);
     border-bottom: solid 1px blue;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+    padding: 15px;
+    width: 100%;
 }
 
 /* for styling all the list items */
@@ -44,8 +45,8 @@ body {
 
 .button-class:hover,
 .button-class:focus {
-    cursor: pointer;
     background-color: lightgreen;
+    cursor: pointer;
 }
 
 .pokemon-list {
