@@ -40,26 +40,31 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    //load detailed data for a given pokemon
+    //load detailed data for a given pokemon when a pokemon button is pressed
     function loadDetails(item) {
+        showLoadingMessage();
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
+            hideLoadingMessage();
             return response.json();
         }).then(function (details) {
             // Now we add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
+
         }).catch(function (e) {
+            hideLoadingMessage();
             console.error(e);
         });
     }
 
     //load list of pokemon from apiUrl
     function loadList() {
-
-        //recall the below fetch syntax is shorthand for method: GET
+        showLoadingMessage();
+        //remember, the below fetch syntax is shorthand for method: GET
         return fetch(apiUrl).then(function (response) {
+            hideLoadingMessage()
             return response.json();
         }).then(function (json) {
             json.results.forEach(function (item) {
@@ -70,8 +75,31 @@ let pokemonRepository = (function () {
                 add(pokemon);
             });
         }).catch(function (e) {
+            hideLoadingMessage()
             console.error(e);
         })
+    }
+
+    //bonus task - show loading message prior to fetch
+    function showLoadingMessage() {
+        console.log(`showLoadingMessage function called`); //FOR TESTING ONLY - REMOVE LATER
+        let loadingElement = document.querySelector('#loading-element');
+
+        let spinner = document.createElement('div');
+        loadingElement.classList.add('is-visible');
+        console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
+
+        loadingElement.appendChild(spinner);
+        console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
+    }
+
+    //bonus task - hide loading message once the fetch response has been received
+    function hideLoadingMessage() {
+        console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
+        let loadingElement = document.querySelector('#loading-element');
+
+        loadingElement.classList.remove('is-visible');
+        console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
     }
 
     //called when a user clicks on a pokemon button; gets pokemon details from the server
