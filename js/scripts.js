@@ -57,6 +57,8 @@ let pokemonRepository = (function () {
 
     //load list of pokemon from apiUrl
     function loadList() {
+
+        //recall the below fetch syntax is shorthand for method: GET
         return fetch(apiUrl).then(function (response) {
             return response.json();
         }).then(function (json) {
@@ -98,7 +100,7 @@ pokemonRepository.loadList().then(function () {
 
 let wowMessage = "Wow, that's big!";
 
-//generate list item (button) for each pokemon name
+//generate list item (button) for each pokemon name. Note - we only call getAll() AFTER we've gotten all the info from the server via loadList()
 pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
 });
