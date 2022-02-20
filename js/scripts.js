@@ -126,8 +126,6 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
-let wowMessage = "Wow, that's big!";
-
 //generate list item (button) for each pokemon name. Note - we only call getAll() AFTER we've gotten all the info from the server via loadList()
 pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
