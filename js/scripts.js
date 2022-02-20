@@ -1,50 +1,10 @@
 let pokemonRepository = (function () {
-    let pokemonList = [{
-        name: 'Bulbasaur',
-        height: 0.7,
-        types: [
-            'grass', 'poison'
-        ]
-    },
-    {
-        name: 'Sandslash',
-        height: 1,
-        types: ['ground']
-    },
-    {
-        name: 'Squirtle',
-        height: 0.5,
-        types: ['water']
-    },
-    {
-        name: 'Arbok',
-        height: 3.5,
-        types: ['poison']
-    },
-    {
-        name: 'Kakuna',
-        height: 0.6,
-        types: [
-            'bug', 'poison'
-        ]
-    },
-    {
-        name: 'Sharpedo',
-        height: 1.8,
-        types: [
-            'dark', 'water'
-        ]
-    }
-    ];//end of array
-
-    //return the entire pokemonList
-    function getAll() {
-        return pokemonList;
-    }
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
     //add new item to pokemonList
     function add(item) {
-        if ((typeof (item) === 'object') && ((Object.keys(item)[0]) === 'name') && ((Object.keys(item)[1]) === 'height')) {
+        if ((typeof (item) === 'object') && ('name' in item) && (('detailsUrl' in item))) {
             pokemonList.push(item);
         }
 
@@ -53,6 +13,14 @@ let pokemonRepository = (function () {
         }
     }
 
+    //external function to add eventListener, passing in 'pokemon' object as the item ('advanced' task)
+    function addListener(button, item) {
+        button.addEventListener("click", () => {
+            showDetails(item);
+        });
+    }
+
+    //create a button for each pokemon
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
@@ -67,23 +35,66 @@ let pokemonRepository = (function () {
         addListener(button, pokemon);
     }
 
-    //external function to add eventListener, passing in 'pokemon' object as the item ('advanced' task)
-    function addListener(button, item) {
-        button.addEventListener("click", () => {
-            showDetails(item);
+    //return the entire pokemonList
+    function getAll() {
+        return pokemonList;
+    }
+
+    //load detailed data for a given pokemon
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (details) {
+            // Now we add the details to the item
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function (e) {
+            console.error(e);
         });
     }
 
+    //load list of pokemon from apiUrl
+    function loadList() {
+        return fetch(apiUrl).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            json.results.forEach(function (item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+            });
+        }).catch(function (e) {
+            console.error(e);
+        })
+    }
+
+    //called when a user clicks on a pokemon button; gets pokemon details from the server
     function showDetails(pokemon) {
-        console.log(pokemon);
+        loadDetails(pokemon).then(function () {
+            console.log(pokemon);
+        });
     }
 
     return {
         getAll: getAll,
         add: add,
-        addListItem: addListItem
-    }
+        addListItem: addListItem,
+        loadList: loadList,
+        loadDetails: loadDetails
+    };
 })(); //end of IIFE
+
+//this code runs once the promise is resolved (i.e. once the list is loaded) and will add each pokemon to my pokemonList
+pokemonRepository.loadList().then(function () {
+    // Now the data is loaded!
+    pokemonRepository.getAll().forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
+});
 
 let wowMessage = "Wow, that's big!";
 
