@@ -13,7 +13,7 @@ let pokemonRepository = (function () {
         }
     }
 
-    //external function to add eventListener, passing in 'pokemon' object as the item ('advanced' task)
+    //external function to add eventListener, passing in 'pokemon' object as the item
     function addListener(button, item) {
         button.addEventListener("click", () => {
             showDetails(item);
@@ -87,27 +87,68 @@ let pokemonRepository = (function () {
 
         let spinner = document.createElement('div');
         loadingElement.classList.add('is-visible');
-        console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
+        // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
 
         loadingElement.appendChild(spinner);
-        console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
+        // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
     }
 
     //bonus task - hide loading message once the fetch response has been received
     function hideLoadingMessage() {
-        console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
+        // console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = document.querySelector('#loading-element');
 
         loadingElement.classList.remove('is-visible');
-        console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
+        // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
     }
 
     //called when a user clicks on a pokemon button; gets pokemon details from the server
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             console.log(pokemon);
+            showModal(pokemon.name, pokemon.height);
+           
         });
     }
+
+     //Show a modal with pokemon details
+     function showModal(name, height) {
+        console.log(`showModal function called`);
+        let modalContainer = document.querySelector('#modal-container');
+        console.log(`modalContainer: ${modalContainer}`);
+        modalContainer.innerHTML = '';
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+    
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+    
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = name;
+    
+        let contentElement = document.createElement('p');
+        contentElement.innerText = height;
+    
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
+        modalContainer.appendChild(modal);
+    
+    
+        modalContainer.classList.add('is-visible');
+      }
+
+      function hideModal() {
+        let modalContainer = document.querySelector('#modal-container');
+        modalContainer.classList.remove('is-visible');
+    
+        if (dialogPromiseReject) {
+          dialogPromiseReject();
+          dialogPromiseReject = null;
+        }
+      }
 
     return {
         getAll: getAll,
