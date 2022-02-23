@@ -49,12 +49,32 @@ body {
     cursor: pointer;
 }
 
+/* remove bullet points and indentation from li's */
 .pokemon-list {
     list-style: none;
     list-style-position: inside;
     margin: 0;
     padding: 0;
 } 
+
+/* display buttons vertically in 1 column */
+.button-wrapper {
+    background-color: orange; /* for testing only - REMOVE LATER */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* for styling the buttons themselves */
+.button-class {
+    background-color: green; /* for testing only - REMOVE LATER */
+}
+
+
+
 
 /* simple loading spinner */
 /* resource: http://jsbin.com/roqakuxebo/1/edit?html,css,console,output */
@@ -70,7 +90,7 @@ body {
     /* margin adjustments below will move the image back to center (correcting for half of the height/width distance) */
     margin-top: -100px;
     margin-left: -100px;
-
+    
     -webkit-animation: rotation .6s infinite linear;
     -moz-animation: rotation .6s infinite linear;
     -o-animation: rotation .6s infinite linear;
@@ -118,9 +138,9 @@ body {
     /* this is used to center the modal */
     display: grid;
     text-align: center;
-  }
-  
-  .modal {
+}
+
+.modal {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
@@ -129,30 +149,30 @@ body {
     width: 100%;
     max-width: 700px;
     text-align: left;
-  }
-  
-  .modal-close {
+}
+
+.modal-close {
     float: right;
     -webkit-appearance: none;
     border: 0;
     background: none;
     color: #777;
     text-decoration: underline;
-  }
-  
-  .modal h1 {
+}
+
+.modal h1 {
     margin-top: 0;
-  }
-  
-  .modal p {
+}
+
+.modal p {
     margin-bottom: 0;
-  }
-  
-  #modal-container {
+}
+
+#modal-container {
     display: none;
-  }
-  
-  #modal-container.is-visible {
+}
+
+#modal-container.is-visible {
     /* CSS for modal container - add your own desired CSS styles here */
     display: block;
-  }
+}
