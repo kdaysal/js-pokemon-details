@@ -31,6 +31,10 @@ let pokemonRepository = (function () {
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
 
+        //Append button element (child) to button-wrapper
+        let buttonWrapper = document.querySelector('.button-wrapper');
+        buttonWrapper.appendChild(button);
+
         //add an event listener to each button to log details of the pokemon object to the console
         addListener(button, pokemon);
     }
