@@ -1,7 +1,9 @@
 /*
 Colors used
-Header Color: #D3D3D3
-Background Color: rgb(243, 247, 213);
+header-color: #D3D3D3
+background-color: rgb(243, 247, 213)
+button-wrapper-color: coral
+button-class-color: light-blue
 */
 
 :root {
@@ -22,18 +24,13 @@ body {
 
 .page-header {
     background-color: var(--header-color);
-    border-bottom: solid 1px blue;
+    border-bottom: solid 2px blue;
     display: flex;
     justify-content: center;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
     padding: 15px;
     width: 100%;
 }
-
-/* for styling all the list items */
-/* .pokemon-button {
-    background-color: orange;
-} */
 
 /* for styling the buttons themselves */
 .button-class {
@@ -59,7 +56,7 @@ body {
 
 /* display buttons vertically in 1 column */
 .button-wrapper {
-    background-color: orange; /* for testing only - REMOVE LATER */
+    background-color: coral; /* for testing only - REMOVE LATER */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -70,11 +67,12 @@ body {
 
 /* for styling the buttons themselves */
 .button-class {
-    background-color: green; /* for testing only - REMOVE LATER */
+    background-color: lightblue; /* for testing only - REMOVE LATER */
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
-
-
-
 
 /* simple loading spinner */
 /* resource: http://jsbin.com/roqakuxebo/1/edit?html,css,console,output */
@@ -129,13 +127,13 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     
-    /* to show it above other content */
+    /* show the modal above other content */
     z-index: 999; 
     
-    /* to allow scrolling if the screen is not high enough*/
+    /* allow scrolling if the screen is not high enough */
     overflow: auto; 
     
-    /* this is used to center the modal */
+    /* center the modal */
     display: grid;
     text-align: center;
 }
