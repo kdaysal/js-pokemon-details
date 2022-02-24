@@ -3,12 +3,14 @@ Colors used
 header-color: #D3D3D3
 background-color: rgb(243, 247, 213)
 button-wrapper-color: coral
-button-class-color: light-blue
+button-class-color: lightblue
+image-background-color: lightgray
 */
 
 :root {
     --background-color: rgb(243, 247, 213);
     --header-color: lightGray;
+    --image-background-color: lightgray;
 }
 
 * {
@@ -119,7 +121,7 @@ body {
 
 #modal-container {
     position: fixed;
-    padding: 20px;
+    padding: 80px;
     box-sizing: border-box;
     top: 0;
     left: 0;
@@ -160,10 +162,12 @@ body {
 
 .modal h1 {
     margin-top: 0;
+    text-align: center;
 }
 
 .modal p {
-    margin-bottom: 0;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 #modal-container {
@@ -173,4 +177,13 @@ body {
 #modal-container.is-visible {
     /* CSS for modal container - add your own desired CSS styles here */
     display: block;
+}
+
+/* display center-aligned pokemon image in modal */
+.pokemon-image-class {
+    background-color: var(--image-background-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgray;
 }
