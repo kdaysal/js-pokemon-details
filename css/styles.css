@@ -62,7 +62,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: 300px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -75,6 +75,15 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+/* expand width of button-wrapper to span most of the available horizontal space (for smaller devices) */
+@media all and (max-width: 600px) {
+    .button-wrapper {
+        max-width: 1000px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+  }
 
 /* simple loading spinner */
 /* resource: http://jsbin.com/roqakuxebo/1/edit?html,css,console,output */
