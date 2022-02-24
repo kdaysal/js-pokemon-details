@@ -117,13 +117,14 @@ let pokemonRepository = (function () {
 
     //Show a modal with pokemon details
     function showModal(name, height, image) {
-        console.log(`showModal function called`);
+        console.log(`showModal function called`); //FOR TESTING ONLY - REMOVE LATER
         let modalContainer = document.querySelector('#modal-container');
         console.log(`modalContainer: ${modalContainer}`);
         modalContainer.innerHTML = '';
         let modal = document.createElement('div');
         modal.classList.add('modal');
 
+        //Generate a close button
         let closeButtonElement = document.createElement('button');
         closeButtonElement.classList.add('modal-close');
         closeButtonElement.innerText = 'Close';
@@ -136,7 +137,10 @@ let pokemonRepository = (function () {
         contentElement.innerText = "Height: " + height;
 
         let imageElement = document.createElement('img');
+        imageElement.classList.add('pokemon-image-class');
         imageElement.src = image;
+
+        console.log(`imageElement.className is: ${imageElement.className}`);
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
@@ -147,6 +151,7 @@ let pokemonRepository = (function () {
     }
 
     function hideModal() {
+        console.log(`hideModal function called`); //FOR TESTING ONLY - REMOVE LATER
         let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
     }
