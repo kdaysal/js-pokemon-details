@@ -88,7 +88,7 @@ let pokemonRepository = (function () {
         })
     }
 
-    //bonus task - show loading message prior to fetch
+    //show loading message prior to fetch
     function showLoadingMessage() {
         console.log(`showLoadingMessage function called`); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = document.querySelector('#loading-element');
@@ -101,7 +101,7 @@ let pokemonRepository = (function () {
         // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
     }
 
-    //bonus task - hide loading message once the fetch response has been received
+    //hide loading message once the fetch response has been received
     function hideLoadingMessage() {
         // console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = document.querySelector('#loading-element');
@@ -114,40 +114,41 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             console.log(pokemon);
-            showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
-
+            showModal(pokemon);
         });
     }
 
     //Show a modal with pokemon details
-    function showModal(name, height, image) {
+    function showModal(pokemon) {
         console.log(`showModal() is running`);
-        console.log(`name: ${name}`);
-        console.log(`height: ${height}`);
-        console.log(`image: ${image}`);
+        console.log(`name: ${pokemon.name}`);
+        console.log(`height: ${pokemon.height}`);
+        console.log(`image: ${pokemon.image}`);
 
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
-        // let modalHeader = $(".modal-header");
+        // let modalHeader = $(".modal-header"); - UNCOMMENT later to further customize modalHeader
 
         //clear out anything currently in the modal
         modalTitle.empty();
         modalBody.empty();
 
         //create a name element in the modal
-        let nameElement = $('<h1>' + name + '</h1>');
-        
-        
+        let nameElement = $('<h1>' + pokemon.name + '</h1>');
+
+        //create a height element in the modal
+        let heightElement = $('<h3>' + 'Height: ' + pokemon.height + '</h3>');
 
         //create an img element in the modal
         let imageElementFront = $('<img class="modal-img" style="width:50%">');
-        imageElementFront.attr("src", image);
+        imageElementFront.attr("src", pokemon.imageUrl);
 
         modalTitle.append(nameElement);
+        modalBody.append(heightElement);
         modalBody.append(imageElementFront);
-
     }
 
+    //this makes it possible to call functions that are nested inside the IIFE
     return {
         getAll: getAll,
         add: add,
