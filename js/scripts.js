@@ -25,9 +25,9 @@ let pokemonRepository = (function () {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.classList.add('button-class');
+        button.classList.add('btn-primary'); //add bootstrap group-list classes to the buttons
         button.innerText = pokemon.name;
-        listItem.classList.add('pokemon-button');
+        listItem.classList.add('group-list-item'); //add bootstrap group-list classes to the li's
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
 
@@ -117,18 +117,18 @@ let pokemonRepository = (function () {
     //called when a user clicks on a pokemon button; gets pokemon details from the server
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            console.log(pokemon);
+            console.log(pokemon); //FOR TESTING ONLY - REMOVE LATER
             showModal(pokemon);
         });
     }
 
     //Show a modal with pokemon details
     function showModal(pokemon) {
-        console.log(`showModal() is running`);
-        console.log(`name: ${pokemon.name}`);
-        console.log(`height: ${pokemon.height}`);
-        console.log(`image: ${pokemon.image}`);
-        console.log(`types: ${pokemon.types}`);
+        console.log(`showModal() is running`); //FOR TESTING ONLY - REMOVE LATER
+        console.log(`name: ${pokemon.name}`); //FOR TESTING ONLY - REMOVE LATER
+        console.log(`height: ${pokemon.height}`); //FOR TESTING ONLY - REMOVE LATER
+        console.log(`image: ${pokemon.image}`); //FOR TESTING ONLY - REMOVE LATER
+        console.log(`types: ${pokemon.types}`); //FOR TESTING ONLY - REMOVE LATER
 
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
