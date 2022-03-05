@@ -77,7 +77,8 @@ body {
 }
 
 /* expand width of button-wrapper to span most of the available horizontal space (for smaller devices) */
-@media all and (max-width: 600px) {
+/* note - 576px is equivalent to bootstrap's "sm" breakpoint */
+@media all and (max-width: 576px) {
     .button-wrapper {
         max-width: 1000px;
         margin-right: 10px;
