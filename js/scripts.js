@@ -132,7 +132,7 @@ let pokemonRepository = (function () {
 
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
-        // let modalHeader = $(".modal-header"); - UNCOMMENT later to further customize modalHeader
+        // let modalHeader = $(".modal-header"); - UNCOMMENT later to further customize modal header
 
         //clear out anything currently in the modal
         modalTitle.empty();
