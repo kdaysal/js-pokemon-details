@@ -59,8 +59,12 @@ let pokemonRepository = (function () {
             // Now we add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            item.types = details.types;
 
+            //blank array that will hold all of the available 'types' for each pokemon
+            item.types = [];
+            details.types.forEach((pokemon) => {
+                item.types.push(' ' + pokemon.type.name); //adding a single leading blank space to visually separate the types when there are 2 or more of them
+            })
         }).catch(function (e) {
             hideLoadingMessage();
             console.error(e);
@@ -124,6 +128,7 @@ let pokemonRepository = (function () {
         console.log(`name: ${pokemon.name}`);
         console.log(`height: ${pokemon.height}`);
         console.log(`image: ${pokemon.image}`);
+        console.log(`types: ${pokemon.types}`);
 
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
@@ -139,12 +144,17 @@ let pokemonRepository = (function () {
         //create a height element in the modal
         let heightElement = $('<h3>' + 'Height: ' + pokemon.height + '</h3>');
 
+        //create a types element in the modal
+        let typesElement = $('<h4>' + 'Types: ' + pokemon.types + '</h4>');
+
         //create an img element in the modal
         let imageElementFront = $('<img class="modal-img" style="width:50%">');
         imageElementFront.attr("src", pokemon.imageUrl);
 
+        //add all elements (modal content) to the modal
         modalTitle.append(nameElement);
         modalBody.append(heightElement);
+        modalBody.append(typesElement);
         modalBody.append(imageElementFront);
     }
 
