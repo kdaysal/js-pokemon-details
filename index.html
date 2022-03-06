@@ -43,19 +43,21 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="pokemon-list list-group"></ul>
+            </div>
+        </div>
         <div id="loading-element"></div>
-        <ul class="pokemon-list list-group"></ul>
-        <div class="button-wrapper"></div>
-        <div id='image-container'></div>
-
         <!-- Modal -->
         <div class="modal fade" id="pokemonModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="pokemonModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center text-capitalize" id="pokemonModalCenterTitle">Modal title</h5>
+                        <h5 class="modal-title text-center text-capitalize" id="pokemonModalCenterTitle">Modal title
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
