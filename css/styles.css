@@ -34,21 +34,8 @@ body {
     width: 100%;
 }
 
-/* for styling the buttons themselves */
-.button-class {
-    background-color: lightskyblue;
-    cursor: pointer;
-    margin: 3px;
-    padding: 10px;
-}
-
-.button-class:hover,
-.button-class:focus {
-    background-color: lightgreen;
-    cursor: pointer;
-}
-
 /* remove bullet points and indentation from li's */
+/* CANNOT remove this yet - buttons disappear */
 .pokemon-list {
     list-style: none;
     list-style-position: inside;
@@ -57,6 +44,7 @@ body {
 } 
 
 /* display buttons vertically in 1 column */
+/* CAN get rid of this, buttons still exist but are scattered across the entire screen */
 .button-wrapper {
     background-color: coral; /* for testing only - REMOVE LATER */
     display: flex;
@@ -65,16 +53,7 @@ body {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    margin-top :120px; /* this is to place the first (top) pokemon button below the header (which has top-fixed positioning) */
-}
-
-/* for styling the buttons themselves */
-.button-class {
-    background-color: lightblue; /* for testing only - REMOVE LATER */
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top :120px; /* this is to place the first (top) button below the header (which has top-fixed positioning) */
 }
 
 /* expand width of button-wrapper to span most of the available horizontal space (for smaller devices) */
@@ -99,7 +78,7 @@ body {
     width:200px;
     z-index: 3;
     
-    /* margin adjustments below will move the image back to center (correcting for half of the height/width distance) */
+    /* margin adjustments below will move the loading element image back to true center (correcting for half of the height/width distance) */
     margin-top: -100px;
     margin-left: -100px;
     
