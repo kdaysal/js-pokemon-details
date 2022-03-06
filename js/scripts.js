@@ -27,7 +27,7 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.classList.add('btn-primary'); //add bootstrap group-list classes to the buttons
         button.innerText = pokemon.name;
-        listItem.classList.add('group-list-item'); //add bootstrap group-list classes to the li's
+        listItem.classList.add('list-group-item'); //add bootstrap list-group-item class to the li's
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
 
@@ -36,8 +36,8 @@ let pokemonRepository = (function () {
         button.setAttribute('data-target', '#pokemonModalCenter')
 
         //Append button element (child) to button-wrapper
-        let buttonWrapper = document.querySelector('.button-wrapper');
-        buttonWrapper.appendChild(button);
+        let listGroup = document.querySelector('.list-group');
+        listGroup.appendChild(button);
 
         //add an event listener to each button to log details of the pokemon object to the console
         addListener(button, pokemon);
