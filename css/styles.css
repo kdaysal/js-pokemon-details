@@ -1,16 +1,12 @@
 /*
 Colors used
-header-color: #D3D3D3
-background-color: rgb(243, 247, 213)
-button-wrapper-color: coral
-button-class-color: lightblue
-image-background-color: lightgray
+background-color (body): #ebc6c6
+header-color: lightGray
 */
 
 :root {
-    --background-color: rgb(243, 247, 213);
+    --background-color: #ebc6c6;
     --header-color: lightGray;
-    --image-background-color: lightgray;
 }
 
 * {
@@ -34,42 +30,22 @@ body {
     width: 100%;
 }
 
-/* remove bullet points and indentation from li's */
-/* CANNOT remove this yet - buttons disappear */
+/* add margin-top to prevent fixed-position header from covering up the first couple of list items */
 .pokemon-list {
-    list-style: none;
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
+    margin-top: 100px;
 } 
 
-/* display buttons vertically in 1 column */
-/* CAN get rid of this, buttons still exist but are scattered across the entire screen */
-.button-wrapper {
-    background-color: coral; /* for testing only - REMOVE LATER */
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top :120px; /* this is to place the first (top) button below the header (which has top-fixed positioning) */
-}
-
-/* expand width of button-wrapper to span most of the available horizontal space (for smaller devices) */
-/* note - 576px is equivalent to bootstrap's "sm" breakpoint */
-@media all and (max-width: 576px) {
-    .button-wrapper {
-        max-width: 1000px;
-        margin-right: 10px;
-        margin-left: 10px;
-    }
+/* make list-group-item background color the same as the body background color to give the appearance of spacing between the buttons */
+.list-group-item{
+    background-color: var(--background-color);
+    margin: 0;
+    border: none;
 }
 
 /* simple loading spinner */
 /* resource: http://jsbin.com/roqakuxebo/1/edit?html,css,console,output */
 /* js code will add classList "is-visible" to #loading-element when pokemon button is pressed and fetch is processing */
-/* Styling (making visible) the element with id="loading-element" AND class="is-visible" */
+/* Style (make visible) the element with id="loading-element" AND class="is-visible" */
 #loading-element.is-visible {
     position: fixed; 
     left: 50%;
