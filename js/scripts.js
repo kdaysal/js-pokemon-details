@@ -99,19 +99,13 @@ let pokemonRepository = (function () {
 
         let spinner = document.createElement('div');
         loadingElement.classList.add('is-visible');
-        // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
-
         loadingElement.appendChild(spinner);
-        // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
     }
 
     //hide loading message once the fetch response has been received
     function hideLoadingMessage() {
-        // console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = document.querySelector('#loading-element');
-
         loadingElement.classList.remove('is-visible');
-        // console.log(loadingElement.classList.contains("is-visible")); //FOR TESTING ONLY - REMOVE LATER
     }
 
     //called when a user clicks on a pokemon button; gets pokemon details from the server
@@ -124,15 +118,9 @@ let pokemonRepository = (function () {
 
     //Show a modal with pokemon details
     function showModal(pokemon) {
-        console.log(`showModal() is running`); //FOR TESTING ONLY - REMOVE LATER
-        console.log(`name: ${pokemon.name}`); //FOR TESTING ONLY - REMOVE LATER
-        console.log(`height: ${pokemon.height}`); //FOR TESTING ONLY - REMOVE LATER
-        console.log(`image: ${pokemon.image}`); //FOR TESTING ONLY - REMOVE LATER
-        console.log(`types: ${pokemon.types}`); //FOR TESTING ONLY - REMOVE LATER
-
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
-        // let modalHeader = $(".modal-header"); - UNCOMMENT later to further customize modal header
+        // let modalHeader = $(".modal-header"); - UNCOMMENT later to further customize modal header, or remove if not desired
 
         //clear out anything currently in the modal
         modalTitle.empty();
