@@ -1,3 +1,4 @@
+/* eslint-env jquery */ //this prevents eslinter from throwing an 'undefined' error on every "$" encountered
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -15,7 +16,7 @@ let pokemonRepository = (function () {
 
     //external function to add eventListener, passing in 'pokemon' object as the item
     function addListener(button, item) {
-        button.on("click", function () {
+        button.on('click', function () {
             showDetails(item);
         });
     }
@@ -94,7 +95,7 @@ let pokemonRepository = (function () {
 
     //show loading message prior to fetch
     function showLoadingMessage() {
-        console.log(`showLoadingMessage function called`); //FOR TESTING ONLY - REMOVE LATER
+        console.log('showLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = $('#loading-element');
         let spinner = $('<div></div>');
         loadingElement.addClass('is-visible');
@@ -103,7 +104,7 @@ let pokemonRepository = (function () {
 
     //hide loading message once the fetch response has been received
     function hideLoadingMessage() {
-        console.log(`hideLoadingMessage function called`); //FOR TESTING ONLY - REMOVE LATER
+        console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = $('#loading-element');
         loadingElement.removeClass('is-visible');
     }
@@ -137,7 +138,7 @@ let pokemonRepository = (function () {
 
         //create an img element in the modal
         let imageElementFront = $('<img class="modal-img" style="width:50%">');
-        imageElementFront.attr("src", pokemon.imageUrl);
+        imageElementFront.attr('src', pokemon.imageUrl);
 
         //add all elements (modal content) to the modal
         modalTitle.append(nameElement);
