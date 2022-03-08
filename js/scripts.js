@@ -15,29 +15,29 @@ let pokemonRepository = (function () {
 
     //external function to add eventListener, passing in 'pokemon' object as the item
     function addListener(button, item) {
-        button.addEventListener("click", () => {
+        button.on("click", function () {
             showDetails(item);
         });
     }
 
     //create a button for each pokemon
     function addListItem(pokemon) {
-        let pokemonList = document.querySelector('.pokemon-list');
-        let listItem = document.createElement('li');
-        let button = document.createElement('button');
-        button.classList.add('btn-primary'); //add bootstrap group-list classes to the buttons
-        button.innerText = pokemon.name;
-        listItem.classList.add('list-group-item'); //add bootstrap list-group-item class to the li's
-        listItem.appendChild(button);
-        pokemonList.appendChild(listItem);
+        let pokemonList = $('.pokemon-list'); //jQuery replacement for: document.querySelector('.pokemon-list');
+        let listItem = $('<li></li>'); //jQuery replacement for: document.createElement('li');
+        let button = $('<button></button>'); //jQuery replacement for: document.createElement('button');
+        button.addClass('btn-primary'); //add bootstrap group-list classes to the buttons
+        button.text(pokemon.name); //jQuery replacement for: button.innerText = pokemon.name;
+        listItem.addClass('list-group-item'); //add bootstrap list-group-item class to the li's. jQuery replacement for: listItem.classList.add('list-group-item');
+        listItem.append(button); //jQuery replacement for: listItem.appendChild(button);
+        pokemonList.append(listItem);
 
         //this will trigger the modal when a pokemon button is pressed
-        button.setAttribute('data-toggle', 'modal');
-        button.setAttribute('data-target', '#pokemonModalCenter')
+        button.attr('data-toggle', 'modal');
+        button.attr('data-target', '#pokemonModalCenter');
 
         //Append button element (child) to button-wrapper
-        let listGroup = document.querySelector('.list-group');
-        listGroup.appendChild(button);
+        let listGroup = $('.list-group');
+        listGroup.append(button);
 
         //add an event listener to each button to log details of the pokemon object to the console
         addListener(button, pokemon);
@@ -95,17 +95,17 @@ let pokemonRepository = (function () {
     //show loading message prior to fetch
     function showLoadingMessage() {
         console.log(`showLoadingMessage function called`); //FOR TESTING ONLY - REMOVE LATER
-        let loadingElement = document.querySelector('#loading-element');
-
-        let spinner = document.createElement('div');
-        loadingElement.classList.add('is-visible');
-        loadingElement.appendChild(spinner);
+        let loadingElement = $('#loading-element');
+        let spinner = $('<div></div>');
+        loadingElement.addClass('is-visible');
+        loadingElement.append(spinner);
     }
 
     //hide loading message once the fetch response has been received
     function hideLoadingMessage() {
-        let loadingElement = document.querySelector('#loading-element');
-        loadingElement.classList.remove('is-visible');
+        console.log(`hideLoadingMessage function called`); //FOR TESTING ONLY - REMOVE LATER
+        let loadingElement = $('#loading-element');
+        loadingElement.removeClass('is-visible');
     }
 
     //called when a user clicks on a pokemon button; gets pokemon details from the server
