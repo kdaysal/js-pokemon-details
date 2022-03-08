@@ -86,6 +86,9 @@ body {
     to {transform: rotate(359deg);}
 }
 
-
+/* continuously rotate the pokeball image just for fun! */
+.pokeball-img {
+animation: rotation 3s infinite linear;
+}
 
 
