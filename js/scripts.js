@@ -26,7 +26,7 @@ let pokemonRepository = (function () {
         let pokemonList = $('.pokemon-list'); //jQuery replacement for: document.querySelector('.pokemon-list');
         let listItem = $('<li></li>'); //jQuery replacement for: document.createElement('li');
         let button = $('<button></button>'); //jQuery replacement for: document.createElement('button');
-        button.addClass('btn-primary btn-lg'); //add bootstrap group-list classes to the buttons
+        button.addClass('btn-primary btn-lg poke-button'); //add bootstrap group-list classes to the buttons
         button.text(pokemon.name); //jQuery replacement for: button.innerText = pokemon.name;
         listItem.addClass('list-group-item'); //add bootstrap list-group-item class to the li's. jQuery replacement for: listItem.classList.add('list-group-item');
         listItem.append(button); //jQuery replacement for: listItem.appendChild(button);
