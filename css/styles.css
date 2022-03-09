@@ -32,14 +32,16 @@ body {
 
 /* add margin-top to prevent fixed-position header from covering up the first couple of list items */
 .pokemon-list {
-    margin-top: 100px;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 } 
 
-/* make list-group-item background color the same as the body background color to give the appearance of spacing between the buttons */
+/* hide bullet points in the list items */
 .list-group-item{
-    background-color: var(--background-color);
-    margin: 0;
-    border: none;
+    display: none;
 }
 
 /* simple loading spinner */
@@ -91,4 +93,18 @@ body {
 animation: rotation 3s infinite linear;
 }
 
+/* add space between buttons and make them all uniform size (min-width) */
+.poke-button {
+    min-width: 200px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px
+}
 
+/* center the buttons within their container */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
