@@ -154,15 +154,11 @@ let pokemonRepository = (function () {
     };
 })(); //end of IIFE
 
-//this code runs once the promise is resolved (i.e. once the list is loaded) and will add each pokemon to my pokemonList
+//this code runs once the promise is resolved (i.e. after the list is loaded)
 pokemonRepository.loadList().then(function () {
-    // Now the data is loaded!
+    //now that data is loaded...
+    //generate list item (button) for each pokemon name. Note - we only call getAll() AFTER we've gotten all the info from the server via loadList()
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     });
-});
-
-//generate list item (button) for each pokemon name. Note - we only call getAll() AFTER we've gotten all the info from the server via loadList()
-pokemonRepository.getAll().forEach((pokemon) => {
-    pokemonRepository.addListItem(pokemon);
 });
