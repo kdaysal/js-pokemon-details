@@ -87,10 +87,21 @@ let pokemonRepository = (function () {
                 };
                 add(pokemon);
             });
+            //now that pokemonList is generated, sort the list alphabetically by pokemon name
+            console.log('unsorted pokemon list...');
+            console.log(pokemonList); //REMOVE LATER - this is for testing purposes only
+            sortPokemonList();
+            console.log('sorted pokemon list...'); //REMOVE LATER - this is for testing purposes only
+            console.log(pokemonList); //REMOVE LATER - this is for testing purposes only
         }).catch(function (e) {
             hideLoadingMessage()
             console.error(e);
         })
+    }
+
+    //sort PokemonList alphabetically by pokemon name
+    function sortPokemonList() {
+        pokemonList.sort((a, b) => (a.name > b.name) ? 1 : -1);
     }
 
     //show loading message prior to fetch
