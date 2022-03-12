@@ -95,7 +95,6 @@ let pokemonRepository = (function () {
 
     //show loading message prior to fetch
     function showLoadingMessage() {
-        console.log('showLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = $('#loading-element');
         let spinner = $('<div></div>');
         loadingElement.addClass('is-visible');
@@ -104,7 +103,6 @@ let pokemonRepository = (function () {
 
     //hide loading message once the fetch response has been received
     function hideLoadingMessage() {
-        console.log('hideLoadingMessage function called'); //FOR TESTING ONLY - REMOVE LATER
         let loadingElement = $('#loading-element');
         loadingElement.removeClass('is-visible');
     }
