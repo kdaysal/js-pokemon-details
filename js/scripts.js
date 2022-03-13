@@ -3,7 +3,7 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    //add new item to pokemonList
+    //add new item (returned from the api fetch) to pokemonList
     function add(item) {
         if ((typeof (item) === 'object') && ('name' in item) && (('detailsUrl' in item))) {
             pokemonList.push(item);
@@ -14,10 +14,10 @@ let pokemonRepository = (function () {
         }
     }
 
-    //external function to add eventListener, passing in 'pokemon' object as the item
-    function addListener(button, item) {
+    //add event listener to each button, passing in pokemon details
+    function addListener(button, pokemonDetails) {
         button.on('click', function () {
-            showDetails(item);
+            showDetails(pokemonDetails);
         });
     }
 
@@ -87,8 +87,7 @@ let pokemonRepository = (function () {
                 };
                 add(pokemon);
             });
-            //now that pokemonList is generated, sort the list alphabetically by pokemon name
-            sortPokemonList();
+            sortPokemonList();//now that pokemonList is generated, I can sort the list alphabetically by pokemon name
         }).catch(function (e) {
             hideLoadingMessage()
             console.error(e);
@@ -121,7 +120,7 @@ let pokemonRepository = (function () {
         });
     }
 
-    //Show a modal with pokemon details
+    //show a modal with pokemon details
     function showModal(pokemon) {
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
@@ -151,6 +150,34 @@ let pokemonRepository = (function () {
         modalBody.append(imageElementFront);
     }
 
+    //add event listener to input on search field
+    $('#search-input').on('keyup', function () {
+        let searchValue = $(this).val();
+        console.log(`value: ${searchValue}`); //for testing only - REMOVE LATER
+        filterData(searchValue); //filter pokemon buttons to only show names that contain the user's search string
+    });
+
+    function filterData(searchValue) {
+        //because getElementsByClassName will return an HTML Collection, not an array, I can't use a regular "forEach" method...but I CAN use Array.from ... which will enable the use of forEach afterwards
+        //see: https://stackoverflow.com/questions/3871547/js-iterating-over-result-of-getelementsbyclassname-using-array-foreach
+        Array.from(document.getElementsByClassName("poke-button")).forEach(
+            function (element, index, array) {
+                let name = element.innerHTML.toLowerCase();
+                console.log(name); //FOR TESTING ONLY - DELETE LATER
+
+                //if pokemon name does NOT include the searchValue, make it invisible
+                if (!name.includes(searchValue)) {
+                    element.classList.add('make-invisible'); // not sure why I couldn't use the JQuery equivalent addClass here...but this worked???
+                }
+                
+                //otherwise, make it visible again (in case the user has already typed in the search field and is now backspacing/removing characters)
+                else {
+                    element.classList.remove('make-invisible');
+                }
+            }
+        );
+    }
+
     //this makes it possible to call functions that are nested inside the IIFE
     return {
         getAll: getAll,
@@ -161,10 +188,10 @@ let pokemonRepository = (function () {
     };
 })(); //end of IIFE
 
-//this code runs once the promise is resolved (i.e. after the list is loaded)
+//this code will only run after the promise is resolved
 pokemonRepository.loadList().then(function () {
     //now that data is loaded...
-    //generate list item (button) for each pokemon name. Note - we only call getAll() AFTER we've gotten all the info from the server via loadList()
+    //generate list item (button) for each pokemon name. Note - I'm only calling getAll() AFTER all the info from the server is loaded via loadList()
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     });
