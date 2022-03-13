@@ -108,3 +108,7 @@ animation: rotation 3s infinite linear;
     justify-content: center;
     align-items: center;
 }
+
+.make-invisible {
+display: none;
+}
