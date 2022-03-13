@@ -1,0 +1,5 @@
+This file has WORKING LOCAL COPY of casing issue RESOLVED (from search field input). Minimized css/js files and linked to them in html file.
+
+Continue on at:
+
+upload it to gh-pages.
