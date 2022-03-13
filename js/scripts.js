@@ -153,7 +153,6 @@ let pokemonRepository = (function () {
     //add event listener to input on search field
     $('#search-input').on('keyup', function () {
         let searchValue = $(this).val();
-        console.log(`value: ${searchValue}`); //for testing only - REMOVE LATER
         filterData(searchValue); //filter pokemon buttons to only show names that contain the user's search string
     });
 
@@ -163,7 +162,6 @@ let pokemonRepository = (function () {
         Array.from(document.getElementsByClassName("poke-button")).forEach(
             function (element, index, array) {
                 let name = element.innerHTML.toLowerCase();
-                console.log(name); //FOR TESTING ONLY - DELETE LATER
 
                 //if pokemon name does NOT include the searchValue, make it invisible
                 if (!name.includes(searchValue)) {
