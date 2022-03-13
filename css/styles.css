@@ -36,7 +36,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
 } 
 
 /* hide bullet points in the list items */
@@ -90,7 +90,7 @@ body {
 
 /* continuously rotate the pokeball image just for fun! */
 .pokeball-img {
-animation: rotation 3s infinite linear;
+    animation: rotation 3s infinite linear;
 }
 
 /* add space between buttons and make them all uniform size (min-width) */
@@ -110,5 +110,16 @@ animation: rotation 3s infinite linear;
 }
 
 .make-invisible {
-display: none;
+    display: none;
+}
+
+/* On very small screens, change header position to static so that the user can expand the hamburger menu without it covering up the first row of pokemon buttons */
+@media (max-width:576px) {
+    .fixed-top {
+        position:static;
+    }
+    
+    .pokemon-list {
+        margin-top: 0;
+    } 
 }
