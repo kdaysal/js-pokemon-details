@@ -19,6 +19,16 @@ This project was built using HTML, CSS, and JavaScript in conjunction with jQuer
 
 * On user action (e.g., by clicking on a list item), view details for that item
 
+<p float="left">
+  <img src="https://github.com/kdaysal/js-pokemon-details/blob/main/img/2-pokedex-main.png" width="300" />
+</p>
+
+* Search for a specific pokemon
+
+<p float="left">
+  <img src="https://github.com/kdaysal/js-pokemon-details/blob/main/img/3-pokedex-search.png" width="300" />
+</p>
+
 
 ## Technologies Used
 
