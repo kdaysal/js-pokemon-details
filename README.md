@@ -29,7 +29,6 @@ This project was built using HTML, CSS, and JavaScript in conjunction with jQuer
   <img src="https://github.com/kdaysal/js-pokemon-details/blob/main/img/3-pokedex-search.png" width="300" />
 </p>
 
-
 ## Technologies / Strategies Used
 
 * JavaScript (ES6)
@@ -39,13 +38,23 @@ This project was built using HTML, CSS, and JavaScript in conjunction with jQuer
 * HTML-5
     * Accessibility features
 * CSS
+* jQuery - used for DOM-traversal, event-handling and Ajax calls
+* [Bootstrap](https://getbootstrap.com/) - UI framework chosen for styling (including Navbar, Modals, and Grid Columns)
 * CodePen (sandbox coding environment used during development)
 * Repl (another sandbox coding environment used during development)
-    
+* [Can I use](https://caniuse.com/) - resource for researching multi-browser compatability of features
+* [JSON Viewer - Chrome](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh) - Chrome extension for printing/highlighting JSON
+* UI patterns - including real-time form validation and modals
+* [Prettier](https://prettier.io/) - used for formatting css code
+* [ESLint](https://eslint.org/) - used for analyzing / formatting JS code
 
 ## User Stories
 
-* As a new user, ...
+* As a user, I'd like to see a list of several pokemon characters so I can browse / scroll through different ones to learn more about them.
+
+* As a user, when I click on the name of a pokemon, I want to see more information about that pokemon such as name, height, and an image.
+
+* As a user on the home page, I want to be able to search for a particular pokemon by name so I don't have to scroll through the entire list to find the one that I'm looking for
 
 ## Technical Requirements
 
@@ -75,8 +84,6 @@ touch interactions.
 
 * The app should handle errors (such as trying to load data while offline) and show user-friendly
 error messages
-
-
 
 ## How to Run the App
 
