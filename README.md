@@ -30,9 +30,17 @@ This project was built using HTML, CSS, and JavaScript in conjunction with jQuer
 </p>
 
 
-## Technologies Used
+## Technologies / Strategies Used
 
-* Bootstrap...
+* JavaScript (ES6)
+    * DOM selection, traversal, and manipulation of nodes 
+    * Event handlers
+    * Event listeners
+* HTML-5
+    * Accessibility features
+* CSS
+* CodePen (sandbox coding environment used during development)
+* Repl (another sandbox coding environment used during development)
     
 
 ## User Stories
