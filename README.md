@@ -1,9 +1,9 @@
 # Pokédex App
-<p float="center">
+<p float="left">
   <img src="https://github.com/kdaysal/js-pokemon-details/blob/main/img/1-pokedex-main.png" width="500" />
 </p>
 
- This single-page Pokemon App allows users to view details for up to 150 different pokemon characters. Details are fetched from a publicly available [Android Studio](https://pokeapi.co/api/v2/pokemon/?limit=150) 
+ This single-page Pokemon App allows users to view details for up to 150 different pokemon characters. Details are fetched from a publicly available [here](https://pokeapi.co/api/v2/pokemon/?limit=150) 
 
 ## Main Objective
 
